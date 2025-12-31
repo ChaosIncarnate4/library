@@ -23,6 +23,11 @@ function addBookFromForm() {
     displayLibrary();
 }
 
+function removeBook(index) {
+    library.splice(index, 1);
+    displayLibrary();
+}
+
 addBookToLibrary("Percy Jackson", "Rick Riordan", 2005, "Urban Fantasy");
 addBookToLibrary("Hunger Games", "Suzanne Collins", 2007, "Dystopian");
 
@@ -32,8 +37,7 @@ function displayLibrary() {
         libraryTable.deleteRow(1);
     }
     
-    library.forEach((book) => {
-        console.log(book.title);
+    library.forEach((book, index) => {
         let row = libraryTable.insertRow();
         let cell1 = row.insertCell();
         cell1.textContent = book.id;
@@ -45,6 +49,11 @@ function displayLibrary() {
         cell4.textContent = book.pubDate;
         let cell5 = row.insertCell();
         cell5.textContent = book.genre;
+        let cell6 = row.insertCell();
+        let removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.onclick = () => removeBook(index);
+        cell6.appendChild(removeButton);
     });
 }
 
