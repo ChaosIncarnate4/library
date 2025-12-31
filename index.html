@@ -8,15 +8,40 @@
     </head>
     <body>
         <h1>Library</h1>
-        <table id="libaryTable">
-            <tr>
-                <td>ID</td>
-                <td>Title</td>
-                <td>Author</td>
-                <td>Publication Year</td>
-                <td>Genre</td>
-            </tr>
-        </table>
+        <div id="container">
+            <div>
+                <table id="libaryTable">
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Publication Year</td>
+                    <td>Genre</td>
+                </tr>
+                </table>
+                <button>Remove Book</button>
+            </div>
+            <div>
+                <div class="fill-in">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" pattern="[A-Za-z]{2,20}" title="Please enter a valid title." required>
+                </div>
+                <div class="fill-in">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" pattern="[A-Za-z]{2,30}" title="Please enter a valid name." required>
+                </div>
+                <div class="fill-in">
+                    <label for="year">Publication Year</label>
+                    <input type="number" id="year" name="year" pattern="[0-9]{4}" title="Please enter a valid year." required>
+                </div>
+                <div class="fill-in">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" name="genre" pattern="[A-Za-z]{2,20}" title="Please enter a valid genre." required>
+                </div>
+                <button type="submit" onclick="addBookFromForm()">Add New Book</button>
+            </div>
+        </div>
+        
         <script src="script.js"></script>
     </body>
 </html>
